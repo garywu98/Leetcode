@@ -114,3 +114,30 @@ Ensure you have Java JDK installed and path set in enviromental variables: https
 **Description:** Union Find, also known as Disjoint Set Union (DSU), is a data structure that keeps track of a partition of a set into disjoint subsets.  
 **Usage:** This pattern is particularly useful for problems where we need to find whether 2 elements belong to the same group or need to solve connectivity-related problems in a graph or tree.  
 **Problems:** 'Graph Redundant Connection', 'Number of Provinces', 'Is Graph Bipart'.  
+
+# Full Explanation
+### Sliding Window
+### Two Pointers
+### Fast & Slow Pointers
+### Merge Intervals
+### Cyclic Sort
+###  In-place Reversal of a LinkedList
+### Tree Breadth-First Search
+### Tree Depth First Search
+### Two Heaps
+### Subsets
+### Modified Binary Search
+### Bitwise XOR
+### Top ‘K’ Elements
+### K-way Merge
+### 0/1 Knapsack
+### Unbounded Knapsack
+### Fibonacci Numbers
+### Palindromic Subsequence
+### Longest Common Substring
+### Topological Sort
+### Trie Traversal
+### Number of Island
+### Trial & Error
+### Union Find
+### Unique Paths

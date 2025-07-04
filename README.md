@@ -52,25 +52,25 @@ Ensure you have Java JDK installed and path set in enviromental variables: https
 
 **Basic Implementation**
 ```
-  public void DFS(Node node)
+public void DFS(Node node)
+{
+  Queue<Node> q = new Queue<>();
+  q.offer(node);
+
+  while(!q.empty())
   {
-    Queue<Node> q = new Queue<>();
-    q.offer(node);
-
-    while(!q.empty())
+    // All nodes in same level
+    for(int i = 0; i < q.size(); q++)
     {
-      // All nodes in same level
-      for(int i = 0; i < q.size(); q++)
-      {
-        // Process node
-        Node current = q.poll();
+      // Process node
+      Node current = q.poll();
 
-        //Add children nodes to queue
-        q.offer(current.left);
-        q.offer(current.right);
-      }
+      //Add children nodes to queue
+      q.offer(current.left);
+      q.offer(current.right);
     }
   }
+}
 ```
 
 ## Pattern: Tree Depth First Search
@@ -83,39 +83,39 @@ Ensure you have Java JDK installed and path set in enviromental variables: https
 ***Preorder***
 Root -> left -> right
 ```
-  public void preorder(Node node)
-  {
-    if(node == null ) return;
+public void preorder(Node node)
+{
+  if(node == null ) return;
 
-    //PROCESS NODE
-    preorder(node.left);
-    preorder(node.right);
-  }
+  //PROCESS NODE
+  preorder(node.left);
+  preorder(node.right);
+}
 ```
 ***Inorder***
 Left -> root -> right
 ```
-  public void inorder(Node node)
-  {
-    if(node == null ) return;
+public void inorder(Node node)
+{
+  if(node == null ) return;
 
-    inorder(node.left);
-    //PROCESS NODE
-    inorder(node.right);
-  }
+  inorder(node.left);
+  //PROCESS NODE
+  inorder(node.right);
+}
 ```
 ***Postorder***
 Right -> left -> root
-  ```
-  public void postorder(Node node)
-  {
-    if(node == null ) return;
+```
+public void postorder(Node node)
+{
+  if(node == null ) return;
 
-    postorder(node.left);
-    postorder(node.right);
-    //PROCESS NODE
-  }
-  ```
+  postorder(node.left);
+  postorder(node.right);
+  //PROCESS NODE
+}
+```
 
 ## Pattern: Two Heaps
 **Description:** This pattern involves using two heaps to divide a set of numbers into two parts.   
@@ -128,24 +128,24 @@ Right -> left -> root
 **Problems:** 'Subsets', 'Subsets With Duplicates', 'Permutations'.  
 
 **Basic Implementation:**
-  ```
-  public void recursiveSubset(int i, int[i] nums, ArrayList<ArrayList<Integer>> res, ArrayList<Integer> subset)
-  {
-      
-        if (i == nums.length) {
-            res.add(new ArrayList<>(subset));
-            return;
-        }
+```
+public void recursiveSubset(int i, int[i] nums, ArrayList<ArrayList<Integer>> res, ArrayList<Integer> subset)
+{
+    
+      if (i == nums.length) {
+          res.add(new ArrayList<>(subset));
+          return;
+      }
 
-        // Include the current element
-        subset.add(nums[i]);
-        subsetRecur(i + 1, nums, res, subset);
+      // Include the current element
+      subset.add(nums[i]);
+      subsetRecur(i + 1, nums, res, subset);
 
-        // Exclude the current element
-        subset.remove(subset.size() - 1);
-        subsetRecur(i + 1, nums, res, subset);
-  }
-  ```
+      // Exclude the current element
+      subset.remove(subset.size() - 1);
+      subsetRecur(i + 1, nums, res, subset);
+}
+```
 
 ## Pattern: Modified Binary Search
 **Description:** This is a tweaked version of the binary search algorithm.  

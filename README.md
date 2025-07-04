@@ -50,10 +50,72 @@ Ensure you have Java JDK installed and path set in enviromental variables: https
 **Usage:** It's used when we need to traverse a tree or graph in a level-by-level (breadth-first) manner.  
 **Problems:** 'Level Order Traversal', 'Reverse Level Order Traversal', 'Zigzag Traversal'.  
 
+**Basic Implementation**
+```
+  public void DFS(Node node)
+  {
+    Queue<Node> q = new Queue<>();
+    q.offer(node);
+
+    while(!q.empty())
+    {
+      // All nodes in same level
+      for(int i = 0; i < q.size(); q++)
+      {
+        // Process node
+        Node current = q.poll();
+
+        //Add children nodes to queue
+        q.offer(current.left);
+        q.offer(current.right);
+      }
+    }
+  }
+```
+
 ## Pattern: Tree Depth First Search
 **Description:** This pattern involves traversing a tree or graph depth-wise before visiting siblings or neighbors.  
 **Usage:** It's used when you need to search deeper into a tree/graph first before going across.  
 **Problems:** 'Binary Tree Path Sum', 'All Paths for a Sum', 'Count Paths for a Sum'.  
+
+**Basic Implementation:**
+
+***Preorder***
+Root -> left -> right
+```
+  public void preorder(Node node)
+  {
+    if(node == null ) return;
+
+    //PROCESS NODE
+    preorder(node.left);
+    preorder(node.right);
+  }
+```
+***Inorder***
+Left -> root -> right
+```
+  public void inorder(Node node)
+  {
+    if(node == null ) return;
+
+    inorder(node.left);
+    //PROCESS NODE
+    inorder(node.right);
+  }
+```
+***Postorder***
+Right -> left -> root
+  ```
+  public void postorder(Node node)
+  {
+    if(node == null ) return;
+
+    postorder(node.left);
+    postorder(node.right);
+    //PROCESS NODE
+  }
+  ```
 
 ## Pattern: Two Heaps
 **Description:** This pattern involves using two heaps to divide a set of numbers into two parts.   
@@ -64,6 +126,26 @@ Ensure you have Java JDK installed and path set in enviromental variables: https
 **Description:** This pattern involves generating all subsets of a set.  
 **Usage:** It's helpful for solving problems that require exploring all subsets of a given set.  
 **Problems:** 'Subsets', 'Subsets With Duplicates', 'Permutations'.  
+
+**Basic Implementation:**
+  ```
+  public void recursiveSubset(int i, int[i] nums, ArrayList<ArrayList<Integer>> res, ArrayList<Integer> subset)
+  {
+      
+        if (i == nums.length) {
+            res.add(new ArrayList<>(subset));
+            return;
+        }
+
+        // Include the current element
+        subset.add(nums[i]);
+        subsetRecur(i + 1, nums, res, subset);
+
+        // Exclude the current element
+        subset.remove(subset.size() - 1);
+        subsetRecur(i + 1, nums, res, subset);
+  }
+  ```
 
 ## Pattern: Modified Binary Search
 **Description:** This is a tweaked version of the binary search algorithm.  
@@ -122,67 +204,7 @@ Ensure you have Java JDK installed and path set in enviromental variables: https
 ### Merge Intervals
 ### Cyclic Sort
 ###  In-place Reversal of a LinkedList
-### Tree Breadth-First Search
 
-```
-  public void DFS(Node node)
-  {
-    Queue<Node> q = new Queue<>();
-    q.offer(node);
-
-    while(!q.empty())
-    {
-      // All nodes in same level
-      for(int i = 0; i < q.size(); q++)
-      {
-        // Process node
-        Node current = q.poll();
-
-        //Add children nodes to queue
-        q.offer(current.left);
-        q.offer(current.right);
-      }
-    }
-  }
-```
-  
-### Tree Depth First Search
-#### Preorder
-Root -> left -> right
-```
-  public void preorder(Node node)
-  {
-    if(node == null ) return;
-
-    //PROCESS NODE
-    preorder(node.left);
-    preorder(node.right);
-  }
-```
-#### Inorder
-Left -> root -> right
-```
-  public void inorder(Node node)
-  {
-    if(node == null ) return;
-
-    inorder(node.left);
-    //PROCESS NODE
-    inorder(node.right);
-  }
-```
-#### Postorder
-Right -> left -> root
-```
-  public void postorder(Node node)
-  {
-    if(node == null ) return;
-
-    postorder(node.left);
-    postorder(node.right);
-    //PROCESS NODE
-  }
-```
 
 ### Two Heaps
 ### Subsets

@@ -123,7 +123,67 @@ Ensure you have Java JDK installed and path set in enviromental variables: https
 ### Cyclic Sort
 ###  In-place Reversal of a LinkedList
 ### Tree Breadth-First Search
+
+```
+  public void DFS(Node node)
+  {
+    Queue<Node> q = new Queue<>();
+    q.offer(node);
+
+    while(!q.empty())
+    {
+      // All nodes in same level
+      for(int i = 0; i < q.size(); q++)
+      {
+        // Process node
+        Node current = q.poll();
+
+        //Add children nodes to queue
+        q.offer(current.left);
+        q.offer(current.right);
+      }
+    }
+  }
+```
+  
 ### Tree Depth First Search
+#### Preorder
+Root -> left -> right
+```
+  public void preorder(Node node)
+  {
+    if(node == null ) return;
+
+    //PROCESS NODE
+    preorder(node.left);
+    preorder(node.right);
+  }
+```
+#### Inorder
+Left -> root -> right
+```
+  public void inorder(Node node)
+  {
+    if(node == null ) return;
+
+    inorder(node.left);
+    //PROCESS NODE
+    inorder(node.right);
+  }
+```
+#### Postorder
+Right -> left -> root
+```
+  public void postorder(Node node)
+  {
+    if(node == null ) return;
+
+    postorder(node.left);
+    postorder(node.right);
+    //PROCESS NODE
+  }
+```
+
 ### Two Heaps
 ### Subsets
 ### Modified Binary Search

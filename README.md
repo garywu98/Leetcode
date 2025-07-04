@@ -197,29 +197,11 @@ public void recursiveSubset(int i, int[i] nums, ArrayList<ArrayList<Integer>> re
 **Usage:** This pattern is particularly useful for problems where we need to find whether 2 elements belong to the same group or need to solve connectivity-related problems in a graph or tree.  
 **Problems:** 'Graph Redundant Connection', 'Number of Provinces', 'Is Graph Bipart'.  
 
-# Full Explanation
-### Sliding Window
-### Two Pointers
-### Fast & Slow Pointers
-### Merge Intervals
-### Cyclic Sort
-###  In-place Reversal of a LinkedList
-
-
-### Two Heaps
-### Subsets
-### Modified Binary Search
-### Bitwise XOR
-### Top ‘K’ Elements
-### K-way Merge
-### 0/1 Knapsack
+# Other
 ### Unbounded Knapsack
 ### Fibonacci Numbers
 ### Palindromic Subsequence
 ### Longest Common Substring
-### Topological Sort
 ### Trie Traversal
-### Number of Island
 ### Trial & Error
-### Union Find
 ### Unique Paths

@@ -67,6 +67,39 @@ public int maxAreaOfIsland(int[][] grid) {
 **Usage:** Often used in problems involving time intervals, ranges, or sequences.  
 **Problems:** 'Merge Intervals', 'Insert Interval', 'Intervals Intersection'.  
 
+**Basic Implementation**
+```
+public int[][] merge(int[][] intervals) {
+        int count = intervals.length;
+
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        List<int[]> merged = new ArrayList<>();
+        int[] prev = intervals[0];
+        
+
+        for(int i = 0; i < intervals.length; i++)
+        {
+            int[] currentInterval = intervals[i];
+
+            // If the current interval start(Y) >= previous interval(X) [0,X],[Y,5] = [0,5]
+            // Keep merged until intervals don't overlap
+            if(currentInterval[0] <= prev[1])
+            {
+                prev[1] = Math.max(prev[1], currentInterval[1]);
+            }
+            else
+            {
+                merged.add(prev);
+                prev = currentInterval;
+            }
+        }
+
+        merged.add(prev);
+
+        return merged.toArray(new int[merged.size()][]);
+    }
+```
+
 ## Pattern: Cyclic Sort
 **Description:** This pattern involves sorting an array containing numbers in a given range.  
 **Usage:** It's useful in situations where the data involves a finite range of natural numbers.  
